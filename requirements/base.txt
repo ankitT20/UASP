@@ -32,3 +32,7 @@ hiredis==2.3.2
 # Payments
 stripe==5.5.0
 gopay==2.0.1
+
+# New
+postgres
+setuptools
