@@ -1,3 +1,7 @@
+wheel
+psycopg2-binary
+psycopg
+psycopg2
 -r base.txt
 
 psycopg2==2.9.5  # https://github.com/psycopg/psycopg2
