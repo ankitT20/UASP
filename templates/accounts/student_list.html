@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }} | Learning management system{% endblock title %}
+
+{% block content %}
+
+
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Students</li>
+    </ol>
+</nav>
+
+<!-- <div id="input-nav"><a href="{% url 'home' %}" class="primary1">Home</a> Students</div> -->
+
+{% if request.user.is_superuser %}
+<div class="manage-wrap">
+    <a class="btn btn-sm btn-primary" href="{% url 'add_student' %}"><i class="fas fa-plus"></i> Add Student</a>
+    <a class="btn btn-sm btn-primary" target="_blank" href="{% url 'student_list_pdf' %}"><i class="fas fa-download"></i> Download pdf</a> <!--new-->
+</div>
+{% endif %}
+
+<div class="title-1"><i class="fas fa-user-graduate"></i>Students</div>
+<br>
+<br>
+
+{% include 'snippets/messages.html' %}
+{% include 'snippets/filter_form.html' %}
+
+<div class="table-responsive table-shadow table-light table-striped m-0 mt-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th> ID No. </th>
+                <th> Full Name </th>
+                <th> Email </th>
+                <th> Program </th>
+                {% if request.user.is_superuser %}
+                <th> Action </th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in filter.qs %}
+            <tr>
+                <td> {{ forloop.counter }}.</td>
+                <td>{{ student.student.username }} </td>
+                <td><a href="{% url 'profile_single' student.student.id %}">{{ student.student.get_full_name }}</a></td>
+                <td>{{ student.student.email }} </td>
+                <td>{{ student.program }}</td>
+
+                {% if request.user.is_superuser %}
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu position-fixed">
+                          <li><a class="dropdown-item" href="{% url 'student_edit' student.student.pk %}"><i class="fas fa-edit"></i> Update</a></li>
+                          <li><a class="dropdown-item" target="_blank" href="{% url 'profile_single' student.student.id %}?download_pdf=1"><i class="fas fa-download"></i> Download PDF</a></li>
+                          <li><a class="dropdown-item text-danger" href="{% url 'student_delete' student.pk %}"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                        </ul>
+                      </div>
+                </td>
+                {% endif %}
+                
+                {% empty %}
+                <tr>
+                  <td colspan="6">
+                  <span class="text-danger">
+                    No Student.
+                    {% if request.user.is_superuser %}
+                    <a href="{% url 'add_student' %}">
+                    <i class="primary" style="font-size: 22px;">
+                       Add Student Now.
+                    </i>
+                    {% endif %}
+                    </a>
+                  </span>
+                </td>
+                </tr>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

@@ -1,5 +1,0 @@
-bhai ye git ni ho rh merse , kya hai ye chal kyu ni rh
-
-ab mi commit krta hu
-git add .
-git commit -am "test commit"
