@@ -1,0 +1,61 @@
+After Installing Ubuntu Server 24.04 LTS (2.7GB) from https://ubuntu.com/download/server
+In VMware - Minimal version
+1GB RAM, 1 core, 1 NAT, 20GB disk SCSI
+configure OpenSSH server while installing for multi-session and multi-terminal
+Import SSH keys from
+https://launchpad.net/~ankit201
+Private key cannot be published on GitHub, call for key OR create your own key 
+Powershell
+mkdir .ssh
+cd /.ssh
+ssh-keygen -t rsa
+public and private key will becreated 
+upload the contents of id_rsa.pub on launchpad.net
+================================================================================================
+ssh ubuntu@192.168.157.130 -i C:\Users\ANKIT\.ssh\ubuntu
+sudo apt install
+sudo apt install python3
+python3 --version
+sudo apt update
+sudo apt install python3-pip -y
+sudo pip3 install --upgrade pip
+pip3 --version
+sudo apt install python3-full
+sudo apt install git-all
+git --version
+pwd
+ls
+git clone https://github.com/ankitT20/UASP.git
+curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+sudo apt-get update
+sudo apt-get install redis
+sudo service redis-server start
+redis-cli 
+ping
+sudo apt install postgresql
+sudo -u postgres psql
+create database uasp;
+create user admin with encrypted password 'postgres';
+grant all privileges on database uasp to admin;
+GRANT postgres TO admin;
+sudo apt install python3-venv
+python3 -m venv .venv
+source .venv/bin/activate
+ls
+cd UASP/
+sudo apt-get install libpq-dev
+pip install -r requirements.txt
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser
+ankit
+tayalankit20@gmail
+ankit
+python manage.py runserver
+
+source .venv/bin/activate
+celery -A config.celery worker -l INFO
+
+
+python manage.py runserver 192.168.157.130:8000
