@@ -1,0 +1,42 @@
+                    List of relations
+ Schema |              Name               | Type  | Owner
+--------+---------------------------------+-------+-------
+ public | accounts_departmenthead         | table | admin
+ public | accounts_parent                 | table | admin
+ public | accounts_student                | table | admin
+ public | accounts_user                   | table | admin
+ public | accounts_user_groups            | table | admin
+ public | accounts_user_user_permissions  | table | admin
+ public | auth_group                      | table | admin
+ public | auth_group_permissions          | table | admin
+ public | auth_permission                 | table | admin
+ public | core_activitylog                | table | admin
+ public | core_newsandevents              | table | admin
+ public | core_semester                   | table | admin
+ public | core_session                    | table | admin
+ public | course_course                   | table | admin
+ public | course_courseallocation         | table | admin
+ public | course_courseallocation_courses | table | admin
+ public | course_courseoffer              | table | admin
+ public | course_program                  | table | admin
+ public | course_upload                   | table | admin
+ public | course_uploadvideo              | table | admin
+ public | dashboard_userdashboardmodule   | table | admin
+ public | django_admin_log                | table | admin
+ public | django_content_type             | table | admin
+ public | django_migrations               | table | admin
+ public | django_session                  | table | admin
+ public | jet_bookmark                    | table | admin
+ public | jet_pinnedapplication           | table | admin
+ public | payments_invoice                | table | admin
+ public | quiz_choice                     | table | admin
+ public | quiz_essayquestion              | table | admin
+ public | quiz_mcquestion                 | table | admin
+ public | quiz_progress                   | table | admin
+ public | quiz_question                   | table | admin
+ public | quiz_question_quiz              | table | admin
+ public | quiz_quiz                       | table | admin
+ public | quiz_sitting                    | table | admin
+ public | result_result                   | table | admin
+ public | result_takencourse              | table | admin
+(38 rows)
