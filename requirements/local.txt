@@ -1,6 +1,7 @@
 -r base.txt
 
 psycopg2==2.9.5  # https://github.com/psycopg/psycopg2
+python-bidi==0.4.2
 
 # Code quality
 # ------------------------------------------------------------------------------
